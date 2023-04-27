@@ -1,11 +1,11 @@
 import os
 from google.cloud import storage
-from google.oauth2.credentials import Credentials
+from google.oauth2.service_account import Credentials
 from google.auth.transport.requests import Request
 from threading import Thread
 
 # Set up GCS credentials
-creds = Credentials.from_service_account_file('path/to/credentials.json')
+creds = Credentials.from_service_account_file('credentials/service-account.json')
 creds = creds.with_scopes(['https://www.googleapis.com/auth/cloud-platform'])
 
 # Set up GCS client

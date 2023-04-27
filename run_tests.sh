@@ -13,7 +13,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # run script
-python src/upload_to_gcs.py --bucket test-bucket --directory tests/data --credentials path/to/credentials.json --num_threads 4
+python src/upload_to_gcs.py --bucket test-bucket --directory tests/data --credentials credentials/service-account.json
 
 # run unit tests
 python -m unittest discover -s tests -p '*_test.py'
