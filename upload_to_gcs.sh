@@ -15,5 +15,5 @@ export GOOGLE_APPLICATION_CREDENTIALS=./credentials/service_account_key.json
 # Upload each file in the local folder to the remote folder in the GCS bucket
 cd "$LOCAL_FOLDER"
 find . -type f | while read FILE; do
-    gsutil cp -r "$FILE" "$BUCKET_NAME/$REMOTE_FOLDER/${FILE#./}"
+    gsutil -m -o GSUtil:parallel_composite_upload_threshold=32M cp -r "$FILE" "$BUCKET_NAME/$REMOTE_FOLDER/${FILE#./}"
 done
