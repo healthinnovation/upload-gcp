@@ -29,7 +29,7 @@ def generate_target_folder(filepath):
     # source_datetime = datetime.strptime(yyyymmdd2 + hhmm2, '%Y%m%d%H%M')
 
     # Generate the target folder structure
-    target_folder = f'harmonize/raw/drone-imagery/{yyyymmdd2}/{file_type}/{village}/{yyyymmdd2}{hhmm2}/{yyyymmdd2}{hhmm2}_{sequential_id}.JPG'
+    target_folder = f'harmonize/raw/drone-imagery/{yyyymmdd2}/{file_type}/{village}/{yyyymmdd2}{hhmm2}_{sequential_id}.JPG'
     
     return target_folder
 
@@ -53,7 +53,7 @@ def generate_target_files(bucket_name, file_list_path):
             with open('invalid_files.txt', 'a') as file:
                 file.write(filename + '\n')
             continue
-        target_name = os.path.join(filename, target_folder)
+        target_name = os.path.join(filename,' ', target_folder)
         target_names.append(target_name)
     
     # Write the target names to a file

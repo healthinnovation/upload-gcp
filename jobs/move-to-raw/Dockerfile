@@ -1,16 +1,18 @@
+# Use the official Google Cloud SDK base image
+FROM google/cloud-sdk:alpine
 
-# Use the official Ubuntu image from Docker Hub as
-# a base image
-FROM ubuntu:22.04
+# Install necessary dependencies
+RUN apk add --no-cache bash
 
-# Execute next commands in the directory /workspace
-WORKDIR /workspace
+# Set the working directory in the container
+WORKDIR /app
 
-# Copy over the script to the /workspace directory
-COPY . .
+# Copy the script and results.txt file to the container
+COPY copy_blobs.sh .
+COPY results.txt .
 
-# Just in case the script doesn't have the executable bit set
-RUN chmod +x ./script.sh
+# Set the script as executable
+RUN chmod +x copy_blobs.sh
 
-# Run the script when starting the container
-CMD [ "./script.sh" ]
+# Set the command to run the script
+CMD ["./copy_blobs.sh"]

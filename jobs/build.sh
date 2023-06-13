@@ -1,0 +1,1 @@
+cd move-to-raw && gcloud builds submit -t "gcr.io/mvp-data-377923/harmonize-job-landing-to-raw"
